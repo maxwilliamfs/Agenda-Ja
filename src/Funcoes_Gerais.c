@@ -298,8 +298,26 @@ void Leitura(){
     arquivo_Med = fopen("Dados_Medicos.txt","r");
     for(int i=0;i<Banco_Medicos.QTDE;i++){
         fgets(Banco_Medicos.Medicos[i].Nome,64,arquivo_Med);
+        int especialidade;
         Banco_Medicos.Medicos[i].Nome[strcspn(Banco_Medicos.Medicos[i].Nome, "\n")] = '\0'; //Retira o \n que o fgets acaba pegando
-        fscanf(arquivo_Med,"%d %d %d:%d %d:%d %d:%d %d:%d\n",&Banco_Medicos.Medicos[i].ID,&Banco_Medicos.Medicos[i].especialidade,&Banco_Medicos.Medicos[i].Ini_Manha.Hora,&Banco_Medicos.Medicos[i].Ini_Manha.Minuto,&Banco_Medicos.Medicos[i].Fim_Manha.Hora,&Banco_Medicos.Medicos[i].Fim_Manha.Minuto, &Banco_Medicos.Medicos[i].Ini_Tarde.Hora, &Banco_Medicos.Medicos[i].Ini_Tarde.Minuto, &Banco_Medicos.Medicos[i].Fim_Tarde.Hora, &Banco_Medicos.Medicos[i].Fim_Tarde.Minuto);
+        fscanf(arquivo_Med,"%d %d %d:%d %d:%d %d:%d %d:%d\n",&Banco_Medicos.Medicos[i].ID,&especialidade,&Banco_Medicos.Medicos[i].Ini_Manha.Hora,&Banco_Medicos.Medicos[i].Ini_Manha.Minuto,&Banco_Medicos.Medicos[i].Fim_Manha.Hora,&Banco_Medicos.Medicos[i].Fim_Manha.Minuto, &Banco_Medicos.Medicos[i].Ini_Tarde.Hora, &Banco_Medicos.Medicos[i].Ini_Tarde.Minuto, &Banco_Medicos.Medicos[i].Fim_Tarde.Hora, &Banco_Medicos.Medicos[i].Fim_Tarde.Minuto);
+        switch (especialidade) {
+            case 1:
+                Banco_Medicos.Medicos[i].especialidade = Especiali_Clinico;
+                break;
+            case 2:
+                Banco_Medicos.Medicos[i].especialidade = Especiali_Pediatra;
+                break;
+            case 3:
+                Banco_Medicos.Medicos[i].especialidade = Especiali_Dermato;
+                break;
+            case 4:
+                Banco_Medicos.Medicos[i].especialidade = Especiali_Cardio;
+                break;
+            case 5:
+                Banco_Medicos.Medicos[i].especialidade = Especiali_Outra;
+                break;
+        }
     }
     fclose(arquivo_Med);
     //Ler o arquivo dos pacientes e colocar no ponteiro
@@ -316,7 +334,22 @@ void Leitura(){
     arquivo_Consul = fopen("Dados_Consultas.txt","r");
     //ID, ID_M, ID_P, Data, Horario Inicio, Horario Fim, Status, Prioridade, Sobreposicao
     for(int i = 0; i<Banco_Consultas.QTDE;i++){
-        fscanf(arquivo_Consul, "%d %d %d %d/%d/%d %d:%d %d:%d %d %d %d\n", &Banco_Consultas.Consultas[i].ID, &Banco_Consultas.Consultas[i].IDMedico, &Banco_Consultas.Consultas[i].IDPaciente, &Banco_Consultas.Consultas[i].data.Dia, &Banco_Consultas.Consultas[i].data.Mes, &Banco_Consultas.Consultas[i].data.Ano, &Banco_Consultas.Consultas[i].Inicio.Hora, &Banco_Consultas.Consultas[i].Inicio.Minuto, &Banco_Consultas.Consultas[i].Fim.Hora, &Banco_Consultas.Consultas[i].Fim.Minuto, &Banco_Consultas.Consultas[i].Status, &Banco_Consultas.Consultas[i].Info_Extras.Urgente, &Banco_Consultas.Consultas[i].Info_Extras.Sobreposicao);
+        int status;
+        fscanf(arquivo_Consul, "%d %d %d %d/%d/%d %d:%d %d:%d %d %d %d\n", &Banco_Consultas.Consultas[i].ID, &Banco_Consultas.Consultas[i].IDMedico, &Banco_Consultas.Consultas[i].IDPaciente, &Banco_Consultas.Consultas[i].data.Dia, &Banco_Consultas.Consultas[i].data.Mes, &Banco_Consultas.Consultas[i].data.Ano, &Banco_Consultas.Consultas[i].Inicio.Hora, &Banco_Consultas.Consultas[i].Inicio.Minuto, &Banco_Consultas.Consultas[i].Fim.Hora, &Banco_Consultas.Consultas[i].Fim.Minuto, &status, &Banco_Consultas.Consultas[i].Info_Extras.Urgente, &Banco_Consultas.Consultas[i].Info_Extras.Sobreposicao);
+        switch (status) {
+            case 1:
+                Banco_Consultas.Consultas[i].Status = Consul_Agendada;
+                break;
+            case 2:
+                Banco_Consultas.Consultas[i].Status = Consul_Falta;
+                break;
+            case 3:
+                Banco_Consultas.Consultas[i].Status = Consul_Concluida;
+                break;
+            case 4:
+                Banco_Consultas.Consultas[i].Status = Consul_Cancelada;
+                break;
+        }
     }
     fclose(arquivo_Consul);
 }

@@ -1,14 +1,12 @@
 #include "Funcoes_Medicas.h"
 #include "Funcoes_Gerais.h"
+#include "Estruturas.h"
 #include "Funcoes_Pacientes.h" // Para Agenda_Medico -> Busca_Paciente
 
 //Funcoes
 void Cadas_Medico(){
     //Essa Funcao vai apenas ler as informacoes do medico e colocar no arquivo
-    typedef struct {
-        int H,Min;
-    } Hor;
-    Hor IM,FM,IT,FT;
+    Horario IM,FM,IT,FT;
     int id,Espe;
     // int op; // Variavel 'op' declarada mas nao utilizada
     char nome[64]; // Variavel 'X' declarada mas nao utilizada
@@ -39,7 +37,7 @@ void Cadas_Medico(){
     //Passar essas informacoes para o arquivo dos medicos
     arquivo_Med = fopen("Dados_Medicos.txt", "a");
     fprintf(arquivo_Med,"%s\n", nome);
-    fprintf(arquivo_Med, "%d %d %d:%d %d:%d %d:%d %d:%d\n",id,Espe,IM.H,IM.Min,FM.H,FM.Min,IT.H,IT.Min,FT.H,FT.Min);
+    fprintf(arquivo_Med, "%d %d %d:%d %d:%d %d:%d %d:%d\n",id,Espe,IM.Hora,IM.Minuto,FM.Hora,FM.Minuto,IT.Hora,IT.Minuto,FT.Hora,FT.Minuto);
     fclose(arquivo_Med);
     Atualizacao_Geral(Parametro = Medico);
     printf("Medico Cadastrado com Sucesso!!!\n");
