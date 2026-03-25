@@ -1,4 +1,4 @@
 AgendaJa
-Dados_Consultas.txt
-Dados_Medicos.txt
-Dados_Pacientes.txt
+*.o
+*.txt
+output/
