@@ -1,6 +1,6 @@
 # Agenda Ja
 
-![Menu de Funcionalidades](/assets/screenshot)
+![Menu de Funcionalidades](/assets/screenshot.png)
 
 ## Descrição
 Este projeto é um simulador de sistema de gerenciamento medico desenvolvido em C, focado em demonstrar conceitos de gerenciamento de entidades (medicos, pacientes e consultas)

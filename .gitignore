@@ -2,3 +2,4 @@ AgendaJa
 *.o
 *.txt
 output/
+.vscode/
