@@ -20,7 +20,7 @@ Este projeto é um simulador de sistema de gerenciamento medico desenvolvido em 
 ### Execultando pelo terminal
 - Clonar o repositório e acessar a pasta:
 ```bash
-git clone [https://github.com/maxwilliamfs/Mini-Kernel.git](https://github.com/maxwilliamfs/Agenda-Ja.git)  
+git clone [https://github.com/maxwilliamfs/Agenda-Ja.git](https://github.com/maxwilliamfs/Agenda-Ja.git)  
 cd Agenda-Ja
 ```
 - Compilar o projeto:
