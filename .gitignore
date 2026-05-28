@@ -1,5 +1,10 @@
 AgendaJa
 *.o
-*.txt
+Dados_Consultas.txt
+Dados_Gerais.txt
+Dados_Extras.txt
+Dados_Pacientes.txt
+Dados_Medicos.txt
 output/
 .vscode/
+build/

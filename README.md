@@ -23,14 +23,19 @@ Este projeto é um simulador de sistema de gerenciamento medico desenvolvido em 
 git clone [https://github.com/maxwilliamfs/Agenda-Ja.git](https://github.com/maxwilliamfs/Agenda-Ja.git)  
 cd Agenda-Ja
 ```
-- Compilar o projeto:
+- Gerar os arquivos de configuração:
 ```bash
-make
+cmake -B build
 ```
-- Execultar o projeto:  
+- Compilar o projeto:  
 ```bash
-make run
+cmake --build build
 ```
+- Executar o projeto
+```bash
+./build/AgendaJa
+```
+
 ## Autor
 **Max William Falcão Santos** - [@maxwilliamfs](https://github.com/maxwilliamfs)
 
